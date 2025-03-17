@@ -1,46 +1,21 @@
 package org.lessons.java.shop;
 
-import java.util.Random;
+import java.math.BigDecimal;
 
 public class main {
     public static void main(String[] args) {
-        Random random = new Random();
-
-        int numero = random.nextInt(1001); // Genera un numero tra 0 e 99
-
-        int numero2 = random.nextInt(1001); // Genera un numero tra 0 e 99
 
 
-        Prodotto cappello = new Prodotto(numero, "Fedora",  "Fedora elegante per tutte le occasioni", 130, 22);
+        Prodotto cappello = new Prodotto( "Fedora",  "Fedora elegante per tutte le occasioni", new BigDecimal(130), new BigDecimal(0.22));
 
-        Prodotto giacca = new Prodotto(numero2, "Giacca Gucci", "Giacca Griffata Gucci di ottima fattura, in pelle eco", 230, 17);
+        Prodotto giacca = new Prodotto( "Giacca Gucci", "Giacca Griffata Gucci di ottima fattura, in pelle eco", new BigDecimal(230), new BigDecimal(0.17));
 
         // Cappello
-        float prezzoConIva = cappello.getPrezzoConIva();
-
-        prezzoConIva = Math.round(prezzoConIva * 100.0f) / 100.0f;
-
-        float prezzo = cappello.getPrezzo();
-
-        String nomeEsteso = cappello.getNomeEsteso();
+        System.out.println("Nome esteso prodotto: " + cappello.getNomeEsteso());
+        System.out.println("prezzo: " + cappello.getPrezzo() + "$ con iva: " + cappello.getPrezzoConIva() + "$");
 
         // Giacca
-
-        float prezzoConIva2 = giacca.getPrezzoConIva();
-
-        prezzoConIva2 = Math.round(prezzoConIva2 * 100.0f) / 100.0f;
-
-        float prezzo2 = giacca.getPrezzo();
-
-        String nomeEsteso2 = giacca.getNomeEsteso();
-
-
-        // Cappello
-        System.out.println("Nome esteso prodotto: " + nomeEsteso);
-        System.out.println("prezzo: " + prezzo + "$ con iva: " + prezzoConIva + "$");
-
-        // Giacca
-        System.out.println("Nome esteso prodotto: " + nomeEsteso2);
-        System.out.println("prezzo: " + prezzo2 + "$ con iva: " + prezzoConIva2 + "$");
+        System.out.println("Nome esteso prodotto: " + giacca.getNomeEsteso());
+        System.out.println("prezzo: " + giacca.getPrezzo() + "$ con iva: " + giacca.getPrezzoConIva() + "$");
     }
 }
